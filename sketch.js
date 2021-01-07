@@ -4,8 +4,8 @@
 // Code for: https://youtu.be/cXgA1d_E-jY&
 
 
-var bird;
-var pipes = [];
+let bird;
+let pipes = [];
 
 function setup() {
   createCanvas(640, 480);
