@@ -3,7 +3,11 @@
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/cXgA1d_E-jY&
 
+// Changed and edited by Masoud and Salim
+
 function Bird() {
+  
+  // Defining all the aspects of the bird function
   this.y = height/2;
   this.x = 64;
 
@@ -17,6 +21,8 @@ function Bird() {
 
 
 fill(255, 0, 0);
+    
+    // Rubiks Cube Figure, can be changed to anything but has you be used with this.x and this.y
 rect(this.x, this.y-16,  14, 14);
 rect(this.x+17, this.y-16, 14, 14);
 rect(this.x+34, this.y-16, 14, 14);
