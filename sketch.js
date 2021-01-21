@@ -4,21 +4,33 @@
 // Code for: https://youtu.be/cXgA1d_E-jY&
 
 // Changed and edited by Masoud and Salim
-
+var timerValue = 1;
 let bird;
 let pipes = [];
+let deaths = 0;
+let dead = false;
+
+
+
 
 // Displaying the canvas
 function setup() {
   createCanvas(640, 480);
   bird = new Bird();
+  setInterval(timeIt, 1000);
   
   pipes.push(new Pipe());
 }
-let deaths = 0;
-let dead = false;
+
 function game() {
   background(0);
+  
+  if (timerValue >= 10) {
+    text("0:" + timerValue, width / 2, height / 2);
+  }
+  if (timerValue < 10) {
+    text('0:0' + timerValue, width / 2, height / 2);
+  }
   
   // Displaying pipes 
   for (let i = pipes.length-1; i >= 0; i--) {
@@ -54,8 +66,11 @@ function game() {
   }
 }
 
-
-
+function timeIt() {
+  if (timerValue > 0) {
+    timerValue++;
+  }
+}
 
 function draw() {
     
@@ -71,11 +86,12 @@ function draw() {
     }
   }
 
-// Restarting the gamew
+// Restarting the game
 mouseClicked = function() {
     if (dead == true) {
       dead = false
       deaths = 0;
+      timerValue = 1;
     }
 };
 
