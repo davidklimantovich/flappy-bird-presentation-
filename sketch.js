@@ -15,10 +15,9 @@ function setup() {
   
   pipes.push(new Pipe());
 }
-
-// Draw function
-function draw() {
-  
+let deaths = 0;
+let dead = false;
+function game() {
   background(0);
   
   // Displaying pipes 
@@ -28,9 +27,10 @@ function draw() {
 
     // Dectecting if pipe goes off screen or is hit by the user
     if (pipes[i].hits(bird)) {
-      console.log("HIT");
+      deaths++;
+      console.log(deaths)
     }
-
+    
     if (pipes[i].offscreen()) {
       pipes.splice(i, 1);
     }
@@ -44,7 +44,40 @@ function draw() {
   if (frameCount % 75 == 0) {
     pipes.push(new Pipe());
   }
+  textSize(50); 
+  text(deaths, 200, 200, 200, 200)
+  
+  if (deaths > 110) {
+    console.log("dead")
+    dead = true
+    return;
+  }
 }
+
+
+
+
+function draw() {
+    
+  background(0);  
+  
+  // Checks if you're dead or not, basically how the game ends or starts
+  if (dead == false) {
+    game();
+  } else {
+    background(0);
+    textSize(50); 
+    text("DEAD, please click to restart", 200, 200, 200, 200)
+    }
+  }
+
+// Restarting the gamew
+mouseClicked = function() {
+    if (dead == true) {
+      dead = false
+      deaths = 0;
+    }
+};
 
 // Jumping
 function keyPressed() {
