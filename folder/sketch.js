@@ -8,17 +8,32 @@
 let bird;
 let pipes = [];
 
+let timerValue = 1;
+
+
 // Displaying the canvas
 function setup() {
   createCanvas(640, 480);
   bird = new Bird();
   
   pipes.push(new Pipe());
+  
+  
+  setInterval(timeIt, 1000);
 }
 let deaths = 0;
 let dead = false;
 function game() {
+  
+  
+  
   background(0);
+  // Showing the timer on the screen
+  if (timerValue >= 1) {
+    text(timerValue, width / 2, height / 2);
+  }
+
+  
   
   // Displaying pipes 
   for (let i = pipes.length-1; i >= 0; i--) {
@@ -71,11 +86,20 @@ function draw() {
     }
   }
 
+// Time function
+
+function timeIt() {
+  if (timerValue > 0) {
+    timerValue++;
+  }
+}
+
 // Restarting the gamew
 mouseClicked = function() {
     if (dead == true) {
       dead = false
       deaths = 0;
+      timerValue = 1; 
     }
 };
 
