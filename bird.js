@@ -4,7 +4,7 @@
 // Code for: https://youtu.be/cXgA1d_E-jY&
 
 // Changed and edited by Masoud and Salim
-
+let img; 
 function Bird() {
   
   // Defining all the aspects of the bird function
@@ -23,16 +23,7 @@ function Bird() {
 fill(255, 0, 0);
     
     // Rubiks Cube Figure, can be changed to anything but has you be used with this.x and this.y
-rect(this.x, this.y-16,  14, 14);
-rect(this.x+17, this.y-16, 14, 14);
-rect(this.x+34, this.y-16, 14, 14);
-rect(this.x, this.y-32, 14, 14);
-rect(this.x+17, this.y-32, 14, 14);
-rect(this.x+34, this.y-32, 14, 14);
-rect(this.x, this.y-48, 14, 14);
-rect(this.x+17, this.y-48, 14, 14);
-rect(this.x+34, this.y-48, 14, 14);
-    scale(0.5, 0.5)
+image(img, this.x, this.y-16,  14, 14);
   }
 
   this.up = function() {
